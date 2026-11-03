@@ -1,0 +1,8 @@
+algoritmo,melhores hiperparâmetros,tempo da busca (s)
+Baseline (classe mais frequente),strategy=most_frequent,3.7681567668914795
+Regressão Logística,C=0.01,7.147010564804077
+KNN,"n_neighbors=31, weights=uniform",10.200693368911743
+Árvore de Decisão,"max_depth=8, min_samples_leaf=30",29.60965347290039
+Naive Bayes (Gaussiano),var_smoothing=0.1,4.357069253921509
+SVM (kernel RBF),"C=1, gamma=0.001",82.16106009483337
+Rede Neural (MLP),"alpha=0.0001, hidden_layer_sizes=(64,)",13.516469717025757
