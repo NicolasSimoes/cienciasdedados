@@ -5,12 +5,16 @@ Equipe: Nicolas Simões Leão Santos, Gisele Costa Siqueira, Silvio Bruno do Nas
 
 ## O que o projeto faz
 Classificação supervisionada **no nível do curso**: dado o perfil médio dos concluintes de um curso e as características do curso
-(categoria administrativa, organização acadêmica, modalidade, região, UF e área), o modelo prevê se a **nota média do curso no ENADE 2023
+(categoria administrativa, organização acadêmica, modalidade, região, estado e área), o modelo prevê se a **nota geral média do curso no ENADE 2023
 fica acima ou abaixo da mediana da sua área**. Os fatores mais associados aos cursos acima da mediana servem de base para um relatório
 comparativo por curso (previsto para as próximas sprints).
 
-> Os microdados do INEP são embaralhados por arquivo (LGPD); os 32 arquivos só podem ser unidos pelo código do curso (`CO_CURSO`).
+> Os microdados do INEP são embaralhados por arquivo (Lei Geral de Proteção de Dados, LGPD); os 32 arquivos só podem ser unidos pelo código do curso (`CO_CURSO` nos microdados).
 > Por isso a unidade de análise é o **curso**, não o aluno.
+
+**Nomes dos cursos.** Tabelas, gráficos e o CSV mostram nomes, não códigos. Os microdados do INEP **não trazem o nome de cada curso individual** (nem o da instituição ou do município), só o código; o "nome do curso" usado aqui é o da **área/graduação** (Medicina, Enfermagem, Engenharia Civil...). Quando é preciso mostrar um curso específico, ele é descrito por *área · categoria administrativa · organização acadêmica · modalidade · estado (nº de concluintes)*, como em "Medicina · Privada sem fins lucrativos · Centro Universitário · Presencial · São Paulo (189 concluintes)". Esse rótulo não é único (cursos parecidos podem repetir), por isso o código do curso segue como identificador. O valor 8 da categoria administrativa é **Comunitária/Confessional**, conforme o dicionário oficial do Enade 2023.
+
+**Siglas.** Onde o INEP usa um código para uma informação (`NT_GER`, `NT_FG`, `NT_CE`, `TP_PRES`, `NU_IDADE`…), o notebook mostra o significado: *nota geral*, *nota de formação geral*, *nota do componente específico*, *situação de presença*, *idade*… O código que lê os arquivos mantém os nomes originais, que são os que existem nos microdados. As siglas `Enade`, `INEP`, `LGPD` e `Sinaes` aparecem explicadas por extenso no notebook.
 
 ## Conteúdo
 | Arquivo | Descrição |
@@ -18,7 +22,7 @@ comparativo por curso (previsto para as próximas sprints).
 | `ENADE2023_Sprints_1_2_3.ipynb` | Notebook com as três sprints, já executado (Parte 1 = Sprint 1, Parte 2 = Sprint 2, Parte 3 = Sprint 3) |
 | `requirements.txt` | Dependências |
 | `figuras/` | Gráficos gerados pelo notebook |
-| `dados_processados/cursos_enade2023_modelagem.csv` | Tabela final por curso (resultado do pré-processamento) |
+| `dados_processados/cursos_enade2023_modelagem.csv` | Tabela final, uma linha por curso (7.723 cursos), com **nomes no lugar de códigos**: `curso` (nome da área/graduação, ex.: Medicina), `categoria_administrativa`, `organizacao_academica`, `modalidade`, `regiao`, `uf` (nome do estado) e `turno_matutino/vespertino/integral/noturno`. Os cabeçalhos também têm significado: `nota_media_geral`, `nota_media_formacao_geral`, `nota_media_componente_especifico`; as 156 colunas do questionário seguem o padrão `<pergunta>__<alternativa>` (ex.: `renda_familiar__...`); as 42 de percepção são `percepcao_questao_NN_media`. Só `codigo_do_curso`, `codigo_da_instituicao` e `codigo_do_municipio` continuam como códigos (identificadores) |
 | `resultados/` | Métricas de validação e teste, hiperparâmetros, ablação e coeficientes (CSV) |
 
 ## Como executar

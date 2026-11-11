@@ -1,0 +1,5 @@
+# Microdados do INEP (44 MB): o README manda baixar do site do INEP e deixar ao lado do notebook
+microdados_enade_2023.zip
+# Arquivos temporários do Jupyter/Python
+.ipynb_checkpoints/
+__pycache__/
