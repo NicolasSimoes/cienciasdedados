@@ -1,11 +1,8 @@
 algoritmo,melhores hiperparâmetros,tempo da busca (s),tempo de treino final (s)
-Bagging (Árvores),árvore-base.max_depth=None,68.52587008476257,32.798118114471436
-Random Forest,"max_depth=None, min_samples_leaf=1",18.242461681365967,5.801950931549072
-AdaBoost (Árvores rasas),"árvore-base.max_depth=2, learning_rate=0.5",45.904444217681885,14.889942407608032
-Gradient Boosting,"learning_rate=0.1, max_depth=3",57.71069860458374,20.39910888671875
-Bagging (Regressão Logística),—,5.817008972167969,1.2525439262390137
-Votação majoritária (3 melhores),—,6.1579811573028564,1.6005215644836426
-Votação por probabilidades (3 melhores),—,21.67813754081726,6.261373043060303
-Votação por probabilidades (6 algoritmos),—,23.987526655197144,7.088955879211426
-Empilhamento (3 melhores),—,26.369548320770264,9.338032245635986
-Empilhamento (6 algoritmos),—,38.00637197494507,14.705179929733276
+Bagging (Árvores),árvore-base.max_depth=None,75.720782995224,35.32784461975098
+Random Forest,"max_depth=None, min_samples_leaf=1",21.684845685958862,6.509503602981567
+AdaBoost (Árvores rasas),"árvore-base.max_depth=2, learning_rate=0.5",57.5407395362854,17.453832864761353
+Votação majoritária (3 melhores),—,9.379420757293701,2.3461060523986816
+Votação por probabilidades (3 melhores),—,30.98383927345276,7.276376247406006
+Votação por probabilidades (6 algoritmos),—,32.40595746040344,8.077633142471313
+Empilhamento (6 algoritmos),—,45.633129835128784,16.657625198364258
